@@ -30,6 +30,6 @@ ActiveRecord::Schema.define(version: 20131120210141) do
     t.integer  "category_id"
   end
 
-  add_index "games", ["category_id"], name: "index_games_on_category_id"
+  add_index "games", ["category_id"], name: "index_games_on_category_id", using: :btree
 
 end
