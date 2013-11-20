@@ -1,0 +1,30 @@
+<h1>Categorías de Juegos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Desc</th>
+      <th># de Juegos</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.desc %></td>
+        <td><%= link_to category.games.count, category_games_by_category_path(category.id), title: "Ver los juegos de esta categoría", data: {tooltip:true} %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Category', new_category_path, class: "button radius"  %>
