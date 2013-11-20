@@ -25,7 +25,6 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -62,7 +61,7 @@ class GamesController < ApplicationController
   end
 
   def contact
-    
+
   end
 
   private
@@ -73,6 +72,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:name, :desc, :materials, :participants)
+      params.require(:game).permit(:name, :desc, :materials, :participants, :category_id)
     end
 end
