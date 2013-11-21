@@ -1,30 +1,27 @@
 <h1>Categorías de Juegos</h1>
+<% @categories.each_with_index do |category, i| %>
+  <% if i > 1 and i % 3 == 0 %>
+    <div class="row">
+  <% end%>
+  <div class="large-4 columns">
+    <ul class="pricing-table">
+      <li class="price"><%=category.name%></li>
+      <li class="description"><%=category.desc%></li>
+      <li class="bullet-item"># de Juegos: <%= link_to category.games.count, category_games_by_category_path(category.id), title: "Ver los juegos de esta categoría" %></li>
+      <li class="cta-button">
+        <%= link_to 'Show', category %>
+        <%= link_to 'Edit', edit_category_path(category) %>
+        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    </ul>
+  </div>
+  <% if i > 1 and i % 3 == 0 %>
+    </div>
+  <% end%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Desc</th>
-      <th># de Juegos</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<% end %>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.desc %></td>
-        <td><%= link_to category.games.count, category_games_by_category_path(category.id), title: "Ver los juegos de esta categoría", data: {tooltip:true} %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div class="row">
 <%= link_to 'New Category', new_category_path, class: "button radius"  %>
+</div>

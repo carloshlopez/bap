@@ -1,26 +1,27 @@
 <h1>Todos los Juegos</h1>
 
 <% @games.each_with_index do |game, i| %>
-<% if i > 0 and i % 3 == 0%>
-  <div class="row">
-<% end%>
-<div class="large-4 columns">
-<ul class="pricing-table">
-  <li class="price"><%=game.name%></li>
-  <li class="description"><%=game.desc%></li>
-  <li class="bullet-item">CAT: <%=game.category.name%></li>
-  <li class="bullet-item">PX: <%=game.participants%></li>
-  <li class="bullet-item">MAT: <%=game.materials%></li>
-  <li class="cta-button">
-    <%= link_to 'Show', game %>
-    <%= link_to 'Edit', edit_game_path(game) %>
-    <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
-</ul>
-<% if i > 0 and i % 3 == 0%>
+  <% if i > 0 and i % 3 == 0%>
+    <div class="row">
+  <% end%>
+  <div class="large-4 columns">
+    <ul class="pricing-table">
+      <li class="price"><%=game.name%></li>
+      <li class="description"><%=game.desc%></li>
+      <li class="bullet-item">CAT: <%=game.category.name%></li>
+      <li class="bullet-item">PX: <%=game.participants%></li>
+      <li class="bullet-item">MAT: <%=game.materials%></li>
+      <li class="cta-button">
+        <%= link_to 'Show', game %>
+        <%= link_to 'Edit', edit_game_path(game) %>
+        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    </ul>
   </div>
-<% end%>
-</div>
-
+  <% if i > 0 and i % 3 == 0%>
+    </div>
+  <% end%>
 <% end %>
+<div class="row">
 <%= link_to 'New Game', new_game_path, class: "button radius" %>
+</div>
