@@ -1,30 +1,26 @@
-<h1>Juegos de la categoría: <%= @category.name %></h1>
+<h1><%= @category.name %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Materiales</th>
-      <th>Participantes</th>
-    </tr>
-  </thead>
+<% @games.each_with_index do |game, i| %>
+<% if i > 0 and i % 3 == 0%>
+  <div class="row">
+<% end%>
+<div class="large-4 columns">
+<ul class="pricing-table">
+  <li class="price"><%=game.name%></li>
+  <li class="description"><%=game.desc%></li>
+  <li class="bullet-item">CAT: <%=game.category.name%></li>
+  <li class="bullet-item">PX: <%=game.participants%></li>
+  <li class="bullet-item">MAT: <%=game.materials%></li>
+  <li class="cta-button">
+    <%= link_to 'Show', game %>
+    <%= link_to 'Edit', edit_game_path(game) %>
+    <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+</ul>
+<% if i > 0 and i % 3 == 0%>
+  </div>
+<% end%>
+</div>
 
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.name %></td>
-        <td><%= game.desc %></td>
-        <td><%= game.materials %></td>
-        <td><%= game.participants %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Game', new_game_path %>
+<% end %>
+<%= link_to 'New Game', new_game_path, class: "button radius" %>
