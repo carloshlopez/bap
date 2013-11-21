@@ -8,7 +8,7 @@
     <ul class="pricing-table">
       <li class="price"><%=game.name%></li>
       <li class="description"><%=game.desc%></li>
-      <li class="bullet-item">CAT: <%=game.category.name%></li>
+      <li class="bullet-item">CAT: <%= link_to game.category.name, category_games_by_category_path(game.category.id)%></li>
       <li class="bullet-item">PX: <%=game.participants%></li>
       <li class="bullet-item">MAT: <%=game.materials%></li>
       <li class="cta-button">
