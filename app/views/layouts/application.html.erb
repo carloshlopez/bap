@@ -23,7 +23,7 @@
 
   <body>
 
-<nav class="top-bar">
+<nav class="top-bar hide-for-small">
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
@@ -45,9 +45,27 @@
     </ul>
   </section>
 </nav>
-
+<div class="row hide-for-medium-up">
+      <div class="small-4 columns">
+        <%= link_to "Teoría", '/theory', class: "button radius"  %>
+      </div>
+      <div class="small-4 columns">
+        <%= link_to "Juegos", games_path , class: "button radius"%>
+      </div>
+      <div class="small-4 columns">
+        <%= link_to "Categorías", categories_path, class: "button radius" %>
+      </div>
+      <div class="small-3 columns hide-for-small">
+        <%= link_to "Contacto" , '/contact', class: "button radius"%>
+      </div>
+</div>
 <div class="row">
   <div class="large-12 columns"><%= yield %></div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+     Si tienes preguntas, o comentarios <a href="/contact">contáctanos</a>
+  </div>
 </div>
 
     
