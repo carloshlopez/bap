@@ -1,7 +1,8 @@
 <h1>Todos los Juegos</h1>
-
-<% @games.each_with_index do |game, i| %>
-  <% if i > 0 and i % 3 == 0%>
+<% j = 0 %>
+<% @games.each do |game| %>
+  <% j = j + 1 %>
+  <% if j == 1%>
     <div class="row">
   <% end%>
   <div class="large-4 columns">
@@ -18,10 +19,13 @@
       </li>
     </ul>
   </div>
-  <% if i > 0 and i % 3 == 0%>
+  <% if j == 3 or j >= @games.count%>
+    <% j = 0 %>
     </div>
   <% end%>
 <% end %>
 <div class="row">
-<%= link_to 'New Game', new_game_path, class: "button radius" %>
+  <div class="large-12 columns">
+    <%= link_to 'New Game', new_game_path, class: "button radius" %>
+  </div>
 </div>

@@ -1,6 +1,8 @@
 <h1>Categorías de Juegos</h1>
-<% @categories.each_with_index do |category, i| %>
-  <% if i > 1 and i % 3 == 0 %>
+<% j = 0 %>
+<% @categories.each do |category| %>
+  <% j = j + 1%>
+  <% if j == 1%>
     <div class="row">
   <% end%>
   <div class="large-4 columns">
@@ -15,7 +17,8 @@
       </li>
     </ul>
   </div>
-  <% if i > 1 and i % 3 == 0 %>
+  <% if j == 3 or j >=@categories.count %>
+    <% j = 0 %>
     </div>
   <% end%>
 
@@ -23,5 +26,7 @@
 
 
 <div class="row">
-<%= link_to 'New Category', new_category_path, class: "button radius"  %>
+  <div class="large-12 columns">
+    <%= link_to 'New Category', new_category_path, class: "button radius"  %>
+  </div>
 </div>
