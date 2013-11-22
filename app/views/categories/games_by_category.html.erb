@@ -13,9 +13,7 @@
       <li class="bullet-item">PX: <%=game.participants%></li>
       <li class="bullet-item">MAT: <%=game.materials%></li>
       <li class="cta-button">
-        <%= link_to 'Show', game %>
-        <%= link_to 'Edit', edit_game_path(game) %>
-        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Detalle', game %>
       </li>
     </ul>
   </div>
@@ -24,8 +22,3 @@
     </div>
   <% end%>
 <% end %>
-<div class="row">
-  <div class="large-12 columns">
-  <%= link_to 'New Game', new_game_path, class: "button radius" %>
-  </div>
-</div>
