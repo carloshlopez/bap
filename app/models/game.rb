@@ -3,4 +3,5 @@ class Game < ActiveRecord::Base
   validates :name, presence: true
   validates :desc, presence: true
   belongs_to :category
+
 end
